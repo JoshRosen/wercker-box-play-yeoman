@@ -1,5 +1,5 @@
 name: play-yeoman
-version: 0.0.1
+version: 0.0.2
 inherits: wercker/ubuntu12.04-nodejs0.10@1.0.4
 type: service
 platform: ubuntu@12.04
@@ -12,7 +12,6 @@ keywords:
   - bower
   - grunt
 packages:
-  - scala@2.10.3
   - scala@2.10.3
   - sbt@0.13.1
 script: |
@@ -32,7 +31,7 @@ script: |
   sudo ln -s /usr/share/scala/bin/scalap /usr/bin/scalap
 
   wget http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/0.13.1/sbt-launch.jar
-  printf 'java -Dsbt.ivy.home=${IVY_CACHE_DIR} -Xmx512M -jar ${SBT_OPTS} `dirname $0`/sbt-launch.jar "$@"' > sbt
+  printf 'java ${SBT_OPTS} -Dsbt.ivy.home=${IVY_CACHE_DIR} -Xmx512M -jar `dirname $0`/sbt-launch.jar "$@"' > sbt
   sudo chmod +x ./sbt
   sudo mv sbt /usr/share/sbt
   sudo mv sbt-launch.jar /usr/share/sbt-launch.jar
