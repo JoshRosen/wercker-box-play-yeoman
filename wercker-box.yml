@@ -39,10 +39,10 @@ script: |
   sudo ln -s /usr/share/sbt /usr/bin/sbt
   sudo ln -s /usr/share/sbt-launch.jar /usr/bin/sbt-launch.jar
 
-  npm install -g yo
-  gem install compass
-  mkdir -p $WERCKER_CACHE_DIR/wercker/npm
-  npm config set cache $WERCKER_CACHE_DIR/wercker/npm
+  sudo npm install -g yo
+  sudo gem install compass
+  sudo mkdir -p $WERCKER_CACHE_DIR/wercker/npm
+  sudo npm config set cache $WERCKER_CACHE_DIR/wercker/npm
 env:
   SBT_OPTS: '''-XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512M'''
   IVY_CACHE_DIR: '"$WERCKER_CACHE_DIR/ivy"'
