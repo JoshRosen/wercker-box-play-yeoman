@@ -1,5 +1,5 @@
 name: play-yeoman
-version: 0.0.2
+version: 0.0.3
 inherits: wercker/ubuntu12.04-nodejs0.10@1.0.4
 type: service
 platform: ubuntu@12.04
@@ -43,5 +43,5 @@ script: |
   sudo mkdir -p $WERCKER_CACHE_DIR/wercker/npm
   sudo npm config set cache $WERCKER_CACHE_DIR/wercker/npm
 env:
-  SBT_OPTS: '''-XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512M'''
+  SBT_OPTS: '-XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512M'
   IVY_CACHE_DIR: '"$WERCKER_CACHE_DIR/ivy"'
